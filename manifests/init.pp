@@ -366,6 +366,9 @@ class horizon(
   $tuskar_ui_ironic_discoverd_url      = undef,
   $tuskar_ui_undercloud_admin_password = undef,
   $tuskar_ui_deployment_mode           = undef,
+
+  # New params
+  $ssl_forward                         = false,
 ) inherits ::horizon::params {
 
   $hypervisor_defaults = {
