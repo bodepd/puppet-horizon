@@ -169,7 +169,7 @@ class horizon::wsgi::apache (
   }
 
   Package['horizon'] -> Package['httpd']
-  Concat[$::horizon::params::config_file] ~> Service['httpd']
+  Concat[$::horizon::params::config_file] ~> Service[$::horizon::params::http_service]
 
   $unix_user  = $::horizon::params::wsgi_user
   $unix_group = $::horizon::params::wsgi_group
