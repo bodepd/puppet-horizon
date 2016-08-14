@@ -187,7 +187,7 @@ class horizon::wsgi::apache (
     ensure  => file,
     owner   => $unix_user,
     group   => $unix_group,
-    before  => Service['httpd'],
+    before  => [ Service['httpd'], Exec['refresh_horizon_django_compress'] ],
     mode    => '0640',
     require => [ File[$::horizon::params::logdir], Package['horizon'] ],
   }
