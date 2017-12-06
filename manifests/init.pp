@@ -362,7 +362,7 @@ class horizon(
   $image_backend                       = {},
   $overview_days_range                 = undef,
   $root_url                            = $::horizon::params::root_url,
-  $session_timeout                     = 1800,
+  $session_timeout                     = 7200,
   $timezone                            = 'UTC',
   $secure_cookies                      = false,
   $django_session_engine               = undef,
