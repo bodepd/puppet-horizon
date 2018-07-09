@@ -371,6 +371,9 @@ class horizon(
   $default_theme                       = false,
   $password_autocomplete               = 'off',
   $images_panel                        = 'legacy',
+  $enable_websso                       = false,
+  $websso_choices                      = undef,
+  $websso_idp_mapping                  = undef,
   # DEPRECATED PARAMETERS
   $custom_theme_path                   = undef,
   $fqdn                                = undef,
