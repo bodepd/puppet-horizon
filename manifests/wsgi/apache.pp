@@ -99,6 +99,7 @@ class horizon::wsgi::apache (
   $extra_params        = {},
   $redirect_type       = 'permanent',
   $root_url            = $::horizon::params::root_url,
+  $ssh_redirect_url    = undef,
 ) inherits horizon::params {
 
   include ::apache
@@ -157,9 +158,17 @@ class horizon::wsgi::apache (
         $redirect_url   = '/'
       }
       default: {
-        $ensure_ssl_vhost = 'absent'
-        $redirect_match = '^/$'
-        $redirect_url   = $root_url
+        if $ssl_redirect {
+          #notify {"parameter value : $ssh_redirect_url ":}
+          $ensure_ssl_vhost = 'absent'
+          $redirect_match = '^/$'
+          $redirect_url   = $ssh_redirect_url
+        }
+        else {
+          $ensure_ssl_vhost = 'absent'
+          $redirect_match = '^/$'
+          $redirect_url   = $root_url
+        }
       }
     }
   }

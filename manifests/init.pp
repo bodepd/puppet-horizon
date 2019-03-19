@@ -384,6 +384,7 @@ class horizon(
 
   # New params
   $ssl_forward                         = false,
+  $ssh_redirect_url                    = undef,
 ) inherits ::horizon::params {
 
   $hypervisor_defaults = {
@@ -507,7 +508,8 @@ class horizon(
       horizon_ca     => $horizon_ca,
       extra_params   => $vhost_extra_params,
       redirect_type  => $redirect_type,
-      root_url       => $root_url
+      root_url       => $root_url,
+      ssh_redirect_url => $ssh_redirect_url
     }
   }
 
